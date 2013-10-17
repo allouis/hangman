@@ -69,4 +69,11 @@ Word.prototype = {
     }
 };
 
+function Game(){
+    this.canvas = document.getElementById("scene");
+    this.width = this.canvas.width;
+    this.height = this.canvas.height;
+    this.context = this.canvas.getContext("2d");
+    this.context.font = "100 30px Helvetica Neue";
+    this.score = 0;
 }
