@@ -4,12 +4,12 @@ function Game(){
     this.height = this.canvas.height;
     this.context = this.canvas.getContext("2d");
     this.context.font = "100 30px Helvetica Neue";
-    this.score = 0;
 }
 
 Game.prototype = {
     
     init: function(){
+        this.score = 0;
         this.setupSandbox();
         this.setupGameObjects();
         this.draw();
