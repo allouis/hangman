@@ -1,3 +1,12 @@
+// Utils
+function letterToNum(letter){
+    return (parseInt(letter, 36) - 10);
+}
+
+function numToLetter(num){
+    return (num + 10).toString(36);
+}
+
 function GameObject(sandbox){
     this.sandbox = sandbox;
     this.letters = [];
