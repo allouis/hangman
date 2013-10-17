@@ -106,12 +106,12 @@ Game.prototype = {
 
     checkInput: function(word){
         word = word.toLowerCase(); 
-        if(word.replace(/[a-z]/g, "").length) return this.askForWord();
+        if(word.replace(/[a-z]/g, "").replace(/\ /g, "").length) return this.askForWord();
         return word;
     },
 
     onWin: function(){
-        this.onComplete("you won! the answer was " + this.word);
+        this.onComplete("you won!");
     },
 
     onLose: function(){
