@@ -66,11 +66,11 @@ Game.prototype = {
     setupSandbox: function(){
         this.sandbox = new Events();
         this.sandbox.on("word:complete", this.onWin, this);
-        this.sandbox.on("game:keyup", this.onKeyup, this);
     },
 
     setupGameObjects: function(){
         this.alphabet = new Alphabet(this.sandbox);
+        this.sandbox.on("game:keyup", this.onKeyup, this);
         this.word = new Word(this.sandbox, this.askForWord());
     },
 
