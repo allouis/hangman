@@ -121,6 +121,16 @@ Game.prototype = {
         this.sandbox = new Events();
         this.sandbox.on("word:complete", this.onWin, this);
         this.sandbox.on("game:keyup", this.onKeyup, this);
+    },
+
+    setupGameObjects: function(){
+        this.alphabet = new Alphabet(this.sandbox);
+        this.word = new Word(this.sandbox, this.askForWord());
     }
 };
 
+function start(){
+    window.game = new Game();
+    game.init();
+}
+window.onload=start;
