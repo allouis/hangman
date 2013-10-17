@@ -77,3 +77,14 @@ function Game(){
     this.context.font = "100 30px Helvetica Neue";
     this.score = 0;
 }
+
+Game.prototype = {
+    
+    init: function(){
+        this.setupSandbox();
+        this.setupGameObjects();
+        this.addKeyupListener();
+        this.draw();
+    }
+};
+
