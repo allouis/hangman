@@ -126,6 +126,17 @@ Game.prototype = {
     setupGameObjects: function(){
         this.alphabet = new Alphabet(this.sandbox);
         this.word = new Word(this.sandbox, this.askForWord());
+    },
+
+    addKeyupListener: function(){
+        window.addEventListener("keyup", this.keyupListener.bind(this));
+    },
+
+    keyupListener: function(event){
+        if(event.which > 64 && event.which < 91) {
+            this.sandbox.emit("game:keyup", event.which-65);
+            this.draw();
+        }
     }
 };
 
