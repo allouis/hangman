@@ -122,8 +122,14 @@ Game.prototype = {
         window.removeEventListener("keyup", this.keyupListener);
         this.draw();
         alert(msg);
+        this.reset();
     },
 
+    reset: function(){
+        if(confirm("Play again?")) {
+            this.init();
+        }
+    },
 
     setupSandbox: function(){
         this.sandbox = new Events();
