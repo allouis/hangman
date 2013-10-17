@@ -119,6 +119,7 @@ Game.prototype = {
     },
 
     onComplete: function(msg){
+        window.removeEventListener("keyup", this.keyupListener);
         this.draw();
         alert(msg);
     },
