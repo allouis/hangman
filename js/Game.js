@@ -25,8 +25,7 @@ Game.prototype = {
 
     draw: function(){
         this.context.clearRect(0,0,this.width, this.height);
-        var ctx = this.context;
-        this.sandbox.emit("game:draw", this.context);
+        this.sandbox.emit("game:draw", this.context, this.score);
     },
 
     askForWord: function(){
