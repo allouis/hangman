@@ -114,6 +114,13 @@ Game.prototype = {
     onComplete: function(msg){
         this.draw();
         alert(msg);
+    },
+
+
+    setupSandbox: function(){
+        this.sandbox = new Events();
+        this.sandbox.on("word:complete", this.onWin, this);
+        this.sandbox.on("game:keyup", this.onKeyup, this);
     }
 };
 
