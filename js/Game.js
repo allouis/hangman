@@ -19,9 +19,6 @@ Game.prototype = {
     onKeyup:function(letter){
         if(!this.word.letters[letter] && !~this.alphabet.letters.indexOf(letter)){
             this.score ++;
-            for(var i = 0, l = this.score; i < l; i++){
-                this.hangman[i]();
-            }
             if(this.score > 11) this.onLose();
         }
     },
