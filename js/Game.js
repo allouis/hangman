@@ -69,6 +69,12 @@ Game.prototype = {
         this.alphabet = new Alphabet(this.sandbox);
         this.sandbox.on("game:keyup", this.onKeyup, this);
         this.word = new Word(this.sandbox, this.askForWord());
+        this.hangman = new Hangman(this.sandbox, {
+            x:400,
+            y:200,
+            w:150,
+            h:100
+        });
     },
 
     addKeyupListener: function(){
