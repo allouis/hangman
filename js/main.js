@@ -143,7 +143,8 @@ Game.prototype = {
     },
 
     addKeyupListener: function(){
-        window.addEventListener("keyup", this.keyupListener.bind(this));
+        this.keyupListener = this.keyupListener.bind(this);
+        window.addEventListener("keyup", this.keyupListener);
     },
 
     keyupListener: function(event){
