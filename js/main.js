@@ -83,8 +83,27 @@ Game.prototype = {
     init: function(){
         this.setupSandbox();
         this.setupGameObjects();
-        this.addKeyupListener();
         this.draw();
+        this.addKeyupListener();
+    },
+
+    draw: function(){
+        this.context.clearRect(0,0,this.width, this.height);
+        var ctx = this.context;
+        this.sandbox.emit("game:draw", this.context);
+    },
+
+    onWin: function(){
+        this.onComplete("you won! the answer was " + this.word);
+    },
+
+    onLose: function(){
+        this.onComplete("you lose:(");
+    },
+
+    onComplete: function(msg){
+        this.draw();
+        alert(msg);
     }
 };
 
