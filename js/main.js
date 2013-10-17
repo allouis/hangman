@@ -32,5 +32,15 @@ Alphabet.prototype = {
                 .map(function(n){ return numToLetter(n); })
                 .join(" ");
     }
-    this.sandbox.on("word:correct", this.removeLetter, this);
+};
+
+function Word(sandbox, word){
+    GameObject.apply(this, arguments);
+    this.word = "";
+    for(var i in word){
+        this.letters[letterToNum(word[i])] = false;
+        this.word += word[i] + " ";
+    }
+}
+
 }
