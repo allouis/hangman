@@ -26,7 +26,7 @@ function Events(target){
       args = A.apply([], arguments)
       list = events[args.shift()] || []
       args = args[0] instanceof A && args[0] || args
-      i = list.length
-      while(~--i<0) list[i].f.apply(list[i].c, args)
+      i = -1;
+      while(i++<list.length-1) list[i].f.apply(list[i].c, args)
     }
 }
