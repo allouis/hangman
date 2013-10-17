@@ -87,6 +87,13 @@ Game.prototype = {
         this.addKeyupListener();
     },
 
+    onKeyup:function(letter){
+        if(!this.word.letters[letter] && !this.alphabet.letters[letter]){
+            this.score ++;
+            if(this.score > 11) this.onLose();
+        }
+    },
+
     draw: function(){
         this.context.clearRect(0,0,this.width, this.height);
         var ctx = this.context;
