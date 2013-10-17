@@ -93,6 +93,16 @@ Game.prototype = {
         this.sandbox.emit("game:draw", this.context);
     },
 
+    askForWord: function(){
+        return this.checkInput(prompt("please pick a word"));
+    },
+
+    checkInput: function(word){
+        word = word.toLowerCase(); 
+        if(word.replace(/[a-z]/g, "").length) return this.askForWord();
+        return word;
+    },
+
     onWin: function(){
         this.onComplete("you won! the answer was " + this.word);
     },
