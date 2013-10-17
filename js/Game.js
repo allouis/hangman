@@ -33,7 +33,8 @@ Game.prototype = {
     },
 
     checkInput: function(word){
-        word = word.toLowerCase(); 
+        if(!word) return;
+        word = word.toLowerCase();
         if(word.replace(/[a-z]/g, "").replace(/\ /g, "").length) return this.askForWord();
         return word;
     },
