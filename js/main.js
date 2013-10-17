@@ -88,7 +88,7 @@ Game.prototype = {
     },
 
     onKeyup:function(letter){
-        if(!this.word.letters[letter] && !this.alphabet.letters[letter]){
+        if(!this.word.letters[letter] && !~this.alphabet.letters.indexOf(letter)){
             this.score ++;
             if(this.score > 11) this.onLose();
         }
