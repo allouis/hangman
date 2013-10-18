@@ -28,23 +28,23 @@ Game.prototype = {
         this.sandbox.emit("game:draw", this.context, this.score);
     },
 
-    askForWord: function(){
-        return this.checkInput(prompt("please pick a word"));
+    askForWord: function(msg){
+        return this.checkInput(prompt(msg));
     },
 
     checkInput: function(word){
         if(!word) return;
         word = word.toLowerCase();
-        if(word.replace(/[a-z]/g, "").replace(/\ /g, "").length) return this.askForWord();
+        if(word.replace(/[a-z]/g, "").replace(/\ /g, "").length) return this.askForWord("Please enter a word - only letter's allowed!");
         return word;
     },
 
     onWin: function(){
-        this.onComplete("you won!");
+        this.onComplete("And the crowd goes wild..");
     },
 
     onLose: function(){
-        this.onComplete("you lose:(");
+        this.onComplete("UH UH :(");
     },
 
     onComplete: function(msg){
@@ -68,7 +68,7 @@ Game.prototype = {
     setupGameObjects: function(){
         this.alphabet = new Alphabet(this.sandbox);
         this.sandbox.on("game:keyup", this.onKeyup, this);
-        this.word = new Word(this.sandbox, this.askForWord());
+        this.word = new Word(this.sandbox, this.askForWord("Please enter a word"));
         this.hangman = new Hangman(this.sandbox, {
             x:400,
             y:200,
