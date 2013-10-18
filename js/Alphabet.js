@@ -11,8 +11,16 @@ Alphabet.prototype = {
         ctx.fillText(this.getText(), 10, 50);
     },
     getText:function(){
-        return this.letters
+        var text = this.letters
                 .map(function(n){ return numToLetter(n); })
                 .join(" ");
+        return this.checkLength(text);
+    },
+    checkLength: function(text){
+        if(text.length < 22) {
+            text += " ?";
+            return this.checkLength(text);
+        } 
+        return text;
     }
 };
