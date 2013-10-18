@@ -33,10 +33,10 @@ Game.prototype = {
     },
 
     checkInput: function(word){
-        if(!word) return this.askForWord("If you don't want to play then leave!");
-        if(!word.replace(/\ /g,"").length) return this.askForWord("Please actually enter a word!");
+        if(!word) return this.askForWord("If you don't want to play then leave! Use the checkbox if you get stuck");
+        if(!word.replace(/\ /g,"").length) return this.askForWord("Please actually enter something!");
         word = word.toLowerCase();
-        if(word.replace(/[a-z]/g, "").replace(/\ /g, "").length) return this.askForWord("Please enter a word - only letter's allowed!");
+        if(word.replace(/[a-z]/g, "").replace(/\ /g, "").length) return this.askForWord("Please enter a word or phrase - only letter's allowed!");
         return word;
     },
 
@@ -69,7 +69,7 @@ Game.prototype = {
     setupGameObjects: function(){
         this.alphabet = new Alphabet(this.sandbox);
         this.sandbox.on("game:keyup", this.onKeyup, this);
-        this.word = new Word(this.sandbox, this.askForWord("Please enter a word"));
+        this.word = new Word(this.sandbox, this.askForWord("Please enter a word or phrase"));
     },
 
     addKeyupListener: function(){
