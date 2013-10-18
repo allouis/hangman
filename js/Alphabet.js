@@ -14,11 +14,11 @@ Alphabet.prototype = {
         var text = this.letters
                 .map(function(n){ return numToLetter(n); })
                 .join(" ");
-        return this.checkLength(text);
+        return this.checkLength(text + " ");
     },
     checkLength: function(text){
         if(text.length < 21) {
-            text += " ?";
+            text += "? ";
             return this.checkLength(text);
         } 
         return text;
