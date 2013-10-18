@@ -16,3 +16,7 @@ function extend(){
     }
     return obj;
 }
+
+function hasBugs(){
+    return false;
+}
