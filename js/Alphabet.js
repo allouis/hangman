@@ -17,7 +17,7 @@ Alphabet.prototype = {
         return this.checkLength(text);
     },
     checkLength: function(text){
-        if(text.length < 22) {
+        if(text.length < 21) {
             text += " ?";
             return this.checkLength(text);
         } 

@@ -34,6 +34,7 @@ Game.prototype = {
 
     checkInput: function(word){
         if(!word) return;
+        if(!word.replace(/\ /g,"").length) return this.askForWord("Please actually enter a word!");
         word = word.toLowerCase();
         if(word.replace(/[a-z]/g, "").replace(/\ /g, "").length) return this.askForWord("Please enter a word - only letter's allowed!");
         return word;
