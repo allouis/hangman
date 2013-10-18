@@ -19,6 +19,7 @@ Game.prototype = {
     onKeyup:function(letter){
         if(!this.word.letters[letter] && !~this.alphabet.letters.indexOf(letter)){
             this.score ++;
+            if(this.score == 11) alert("Last guess, make it count!");
             if(this.score > 11) this.onLose();
         }
     },
